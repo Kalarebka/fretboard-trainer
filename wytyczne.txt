@@ -1,0 +1,7 @@
+
+1. żeby pokazywał mi jaki dźwięk mam zagrać - notacja literowa, bez flatów - czyli A, A#, B, C, C# i tak dalej
+2. żeby robił to w tempie określanym przez bpm
+3. żeby dało się przed rozpoczęciem pokazywania ustawić jakie dźwięki ma pokazywać - domyślnie mają być wszystkie (12), ale żeby dało się zmienić tak, żeby pokazywał tylko wybrane
+4. żeby poza dźwiękiem pokazywał jeszcze strunę na której dźwięk ma być zagrany
+czyli np. "D struna 2", "F# struna 6" i tak dalej
+5. opcjonalnie żeby umiał rozpoznawać dźwięki przez mikrofon
