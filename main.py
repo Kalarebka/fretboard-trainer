@@ -2,14 +2,14 @@ import random
 
 from tkinter import *
 
-# ---------------------------- CONSTANTS ------------------------------- #
+# ----------------- CONSTANTS -------------------- #
 DARK = "#781C68"
 MEDIUM_DARK = "#9A0680"
 MEDIUM_LIGHT = "#FFD39A"
 LIGHT = "#FFF5E1"
 FONT_NAME = "Courier"
 
-# ------------- VARIABLE TO CONTROL STARTING AND STOPPING THE TRAINING ------- #
+# ------- VARIABLE TO CONTROL STARTING AND STOPPING THE TRAINING ------- #
 ongoing_training = False
 
 
@@ -57,7 +57,7 @@ def stop_training():
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Fretboard Trainer")
-window.config(padx=100, pady=50, bg=LIGHT)
+window.config(padx=30, pady=30, bg=MEDIUM_LIGHT)
 
 # Display notes to play and string number
 canvas = Canvas(width=300, height=300, bg=MEDIUM_LIGHT, highlightthickness=0)
@@ -66,25 +66,32 @@ string_number_display = canvas.create_text(150, 250, text="String 1", fill=DARK,
 canvas.grid(row=0, column=3, columnspan=6)
 
 # Start and stop buttons
-start_button = Button(text="Start", command=start_training)
-stop_button = Button(text="Stop", command=stop_training)
+start_button = Button(text="Start", command=start_training, bg=LIGHT, fg=MEDIUM_DARK, width=20)
+stop_button = Button(text="Stop", command=stop_training, bg=LIGHT, fg=MEDIUM_DARK, width=20)
 start_button.grid(row=1, column=1, columnspan=4)
 stop_button.grid(row=1, column=7, columnspan=4)
 
 # Speed selection
-select_speed_label = Label(text="Select speed (BPM)")
+select_speed_label = Label(text="Select speed (BPM)", bg=MEDIUM_LIGHT, fg=DARK)
 select_speed_label.grid(row=2, column=0, columnspan=12)
 
-speed_entry = Entry(window, width=8)
+speed_entry = Entry(window, width=8, bg=MEDIUM_LIGHT)
 speed_entry.insert(0, "60")
 speed_entry.grid(row=3, column=0, columnspan=2)
 
 speed = IntVar(value=60)
-speed_slider = Scale(window, from_=20, to=200, command=update_speed, orient=HORIZONTAL, variable=speed)
+speed_slider = Scale(window,
+                     from_=20,
+                     to=200,
+                     command=update_speed,
+                     orient=HORIZONTAL,
+                     variable=speed,
+                     bg=MEDIUM_LIGHT,
+                     troughcolor=LIGHT,)
 speed_slider.grid(row=3, column=2, columnspan=10, sticky="ew")
 
 # Sounds selection
-select_sounds_label = Label(text="Check the sounds you want to train")
+select_sounds_label = Label(text="Check the sounds you want to train", bg=MEDIUM_LIGHT, fg=DARK)
 select_sounds_label.grid(row=4, column=0, columnspan=12)
 
 all_notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
@@ -92,7 +99,7 @@ note_checkboxes = []
 for i in range(12):
     note_var = IntVar()
     note_checkboxes.append(note_var)
-    box = Checkbutton(window, text=all_notes[i], variable=note_checkboxes[i])
+    box = Checkbutton(window, text=all_notes[i], variable=note_checkboxes[i], bg=MEDIUM_LIGHT)
     box.grid(row=5, column=i)
     box.select()
 
